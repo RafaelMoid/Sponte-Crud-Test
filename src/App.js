@@ -1,8 +1,7 @@
-import React, {
-  useState
-} from 'react'
+import React, { useState } from 'react'
 import UserTable from './tables/UserTable'
 import AddUserForm from './forms/AddUserForm'
+import EditUserForm from './forms/EditUserForm'
 
 // Fictional Data
 const App = () => {
@@ -58,14 +57,35 @@ const App = () => {
     })
   }
 
+  // taking two parameters - the updated user object, and the id
+  // and we'll use a ternary operation to map through the users
+  const updateUser = (id, updatedUser) => {
+    setEditing(false)
+  
+    setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
+  }
+
   return ( 
     <div className = "container">
       <h1> CRUD App with Hooks </h1>  
       <div className = "flex-row">
-        <div className = "flex-large">
-          <h2> Add user </h2>
-          <AddUserForm addUser = {addUser}/>
-        </div >
+      <div className="flex-large">
+  {editing ? (
+    <div>
+      <h2>Edit user</h2>
+      <EditUserForm
+        setEditing={setEditing}
+        currentUser={currentUser}
+        updateUser={updateUser}
+      />
+    </div>
+  ) : (
+    <div>
+      <h2>Add user</h2>
+      <AddUserForm addUser={addUser} />
+    </div>
+  )}
+</div>
         <div className = "flex-large">
           <h2> View users </h2> 
           {/* Passing the deleteUser and EditRow as Props to User Table */}
