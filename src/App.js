@@ -1,95 +1,142 @@
 import React, { useState } from 'react'
-import UserTable from './tables/UserTable'
-import AddUserForm from './forms/AddUserForm'
-import EditUserForm from './forms/EditUserForm'
+import ProductTable from './tables/ProductTable'
+import AddProductForm from './forms/AddProductForm'
+import EditProductForm from './forms/EditProductForm'
 
-// Fictional Data
 const App = () => {
-  const usersData = [{
+
+  // Fictional Data
+  const productsData = [{
       id: 1,
-      name: 'Tania',
-      username: 'floppydiskette'
+      title: 'PC Gammer',
+      description: '32GB Ram, Octacore 9i, SDD 500GB, Cooling system, Great product and you should buy it',
+      height: '40',
+      width: '32',
+      depth: '20',
+      weight: '2',
+      barcode: '13284687',
+      categories: 'Pc Gammer',
+      price: '10000',
+      aquisitondate: '11-01-1990',
+      image: '' 
     },
     {
       id: 2,
-      name: 'Craig',
-      username: 'siliconeidolon'
+      title: 'PC Gammer 2',
+      description: '32GB Ram, Octacore 9i, SDD 500GB, Cooling system, Great product and you should buy it',
+      height: '40',
+      width: '32',
+      depth: '20',
+      weight: '2',
+      barcode: '13284687',
+      categories: 'Pc Gammer',
+      price: '10000',
+      aquisitondate: '11-01-1990',
+      image: '' 
     },
-    {
-      id: 3,
-      name: 'Ben',
-      username: 'benisphere'
+     {
+       id: 3,
+      title: 'PC Gammer 3',
+      description: '32GB Ram, Octacore 9i, SDD 500GB, Cooling system, Great product and you should buy it',
+      height: '40',
+      width: '32',
+      lenght: '20',
+      weight: '2',
+      barcode: '13284687',
+      categories: 'Pc Gammer',
+      price: '10000',
+      aquisitondate: '11-01-1990',
+      image: '' 
     },
   ]
 
-  const [users, setUsers] = useState(usersData)
+  const [products, setProducts] = useState(productsData)
   // Editing state logic for modal
   const [editing, setEditing] = useState(false)
   // Inicial form state Empty waiting the selected entry for colect it's data
   const initialFormState = {
     id: null,
-    name: '',
-    username: ''
+    title: '',
+    description: '',
+    height: '',
+    width: '',
+    depth: '',
+    weight: '',
+    barcode: '',
+    categories: '',
+    price: '',
+    aquisitondate: '',
+    image: '' ,
   }
-  // Way to see and updtate who the current user being edit is
-  const [currentUser, setCurrentUser] = useState(initialFormState)
+  // Way to see and updtate who the current product being edit is
+  const [currentProduct, setCurrentProduct] = useState(initialFormState)
 
-  // Because we're not using a API or a Database i've created this function to autoincremet the user id
+  // Because we're not using a API or a Database i've created this function to autoincremet the product id
   // But if we have one of those it probably wouldn't be necessary.
-  const addUser = (user) => {
-    user.id = users.length + 1
-    setUsers([...users, user])
+  const addProduct = (product) => {
+    product.id = products.length + 1
+    setProducts([...products, product])
   }
 
   // Delete arrow function to delete data :)
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id))
+  const deleteProduct = (id) => {
+    setProducts(products.filter((product) => product.id !== id))
   }
 
   // Update arrow function to alter data of DB
-  const editRow = (user) => {
+  const editRow = (product) => {
     setEditing(true)
 
-    setCurrentUser({
-      id: user.id,
-      name: user.name,
-      username: user.username
+    setCurrentProduct({
+      id: product.id,
+      title: product.title,
+      description: product.description,
+      height: product.height,
+      width: product.width,
+      depth: product.depth,
+      weight: product.weight,
+      barcode: product.barcode,
+      categories: product.categories,
+      price: product.price,
+      aquisitondate: product.aquisitondate,
+      image: product.image, 
     })
   }
 
-  // taking two parameters - the updated user object, and the id
-  // and we'll use a ternary operation to map through the users
-  const updateUser = (id, updatedUser) => {
+  // taking two parameters - the updated product object, and the id
+  // and we'll use a ternary operation to map through the products
+  const updateProduct = (id, updatedProduct) => {
     setEditing(false)
   
-    setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
+    setProducts(products.map((product) => (product.id === id ? updatedProduct : product)))
   }
 
   return ( 
     <div className = "container">
-      <h1> CRUD App with Hooks </h1>  
+      <h1>Sponte Product CRUD system</h1>
+      <h2>by Rafael Varela</h2>  
       <div className = "flex-row">
       <div className="flex-large">
   {editing ? (
     <div>
-      <h2>Edit user</h2>
-      <EditUserForm
+      <h2>Editar produto</h2>
+      <EditProductForm
         setEditing={setEditing}
-        currentUser={currentUser}
-        updateUser={updateUser}
+        currentProduct={currentProduct}
+        updateProduct={updateProduct}
       />
     </div>
   ) : (
     <div>
-      <h2>Add user</h2>
-      <AddUserForm addUser={addUser} />
+      <h2>Adicionar produto</h2>
+      <AddProductForm addProduct={addProduct} />
     </div>
   )}
 </div>
         <div className = "flex-large">
-          <h2> View users </h2> 
-          {/* Passing the deleteUser and EditRow as Props to User Table */}
-          <UserTable users = { users } editRow={editRow} deleteUser = {deleteUser} />
+          <h2> Listagem de produtos </h2> 
+          {/* Passing the deleteProduct and EditRow as Props to Product Table */}
+          <ProductTable products = { products } editRow={editRow} deleteProduct = {deleteProduct} />
         </div>
       </div>
     </div>
