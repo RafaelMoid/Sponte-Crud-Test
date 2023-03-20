@@ -1,20 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 const EditProductForm = (props) => {
   const [product, setProduct] = useState(props.currentProduct)
 
   const handleInputChange = (event) => {
-    const { title, value } = event.target
+    const { name, value } = event.target
 
-    setProduct({ ...product, [title]: value })
+    setProduct({ ...product, [name]: value })
   }
 
   useEffect(() => {
     setProduct(props.currentProduct)
   }, [props])
 
+  const Form = styled.form`
+    label{
+      font-size: 16px;
+      color: #785afd;
+    }
+  `;
+
+
   return (
-    <form
+    <Form
       onSubmit={(event) => {
         event.preventDefault()
 
@@ -105,7 +114,7 @@ const EditProductForm = (props) => {
       >
         Cancelar
       </button>
-    </form>
+    </Form>
   )
 }
 

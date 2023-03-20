@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const Table = styled.table`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Thead = styled.thead`
+ color: white;
+`
 
 const ProductTable = (props) => (
-  <table>
-    <thead>
+  <Table>
+    <Thead>
       <tr>
         <th>Produto</th>
         <th>Descrição</th>
@@ -15,7 +25,7 @@ const ProductTable = (props) => (
         <th>Foto do produto</th>
         <th>Ações</th>
       </tr>
-    </thead>
+    </Thead>
     <tbody>
       {props.products.length > 0 ? (
         props.products.map((product) => (
@@ -23,10 +33,10 @@ const ProductTable = (props) => (
             <td>{product.title}</td>
             <td>{product.description}</td>
             <td>{product.height} x {product.width} x {product.depth}CM</td>
-            <td>{product.weight}</td>
+            <td>{product.weight}KG</td>
             <td>{product.barcode}</td>
             <td>{product.categories}</td>
-            <td>{product.price}</td>
+            <td>R${product.price}</td>
             <td>{product.aquisitondate}</td>
             <td>{product.image}</td>
             <td>
@@ -42,7 +52,7 @@ const ProductTable = (props) => (
         </tr>
       )}
     </tbody>
-  </table>
+  </Table>
 )
 
 export default ProductTable

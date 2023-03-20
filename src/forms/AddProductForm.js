@@ -1,4 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+
+// Styled Components
+// Os estilos abaixos foram adicionados fora da função para evitar a perca de focus ao atualizar valores, caso estivesse dentro da função ele faria o re-render o form
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px 0;
+
+  input {
+    height: 26px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    margin-bottom: 8px;
+  }
+
+  input::placeholder {
+    text-align: center;
+  }
+  
+  label {
+    font-weight: 700;
+    font-size: 18px;
+    color: #785afd;
+    margin-top: 8px;
+  }
+
+  .textarea {
+    height: 150px;
+  }
+`
+const MeasureWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+
+  div {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 
 const AddProductForm = (props) => {
   const initialFormState = { id: null, title: '', description: '', height: '',  width: '',  depth: '', weight: '', barcode: '', categories: '', price: '', aquisitondate: '', image: '' }
@@ -10,8 +56,9 @@ const AddProductForm = (props) => {
     setProduct({ ...product, [name]: value })
   }
 
+  
   return (
-    <form
+    <Form
       onSubmit={(event) => {
         event.preventDefault()
         if (!product.title) return
@@ -20,85 +67,105 @@ const AddProductForm = (props) => {
         setProduct(initialFormState)
       }}
     >
-      <label>Nome do Produto</label>
-      <input
-        type="text"
-        name="title"
-        value={product.title}
-        onChange={handleInputChange}
-      />
-      <label>Descrição</label>
-      <input
-        type="textarea"
-        name="description"
-        value={product.description}
-        onChange={handleInputChange}
-      />
-      <label>Altura</label>
-      <input
-        type="number"
-        name="height"
-        value={product.height}
-        onChange={handleInputChange}
-      />
-      <label>Largura</label>
-      <input
-        type="number"
-        name="width"
-        value={product.width}
-        onChange={handleInputChange}
-      />
-      <label>Profundidade</label>
-      <input
-        type="number"
-        name="depth"
-        value={product.depth}
-        onChange={handleInputChange}
-      />
-      <label>Peso do produto</label>
-      <input
-        type="number"
-        name="weight"
-        value={product.weight}
-        onChange={handleInputChange}
-      />
-      <label>Código de Barras</label>
-      <input
-        type="number"
-        name="barcode"
-        value={product.barcode}
-        onChange={handleInputChange}
-      />
-      <label>Categorias</label>
-      <input
-        type="text"
-        name="categories"
-        value={product.categories}
-        onChange={handleInputChange}
-      />
-      <label>Preço</label>
-      <input
-        type="number"
-        name="price"
-        value={product.price}
-        onChange={handleInputChange}
-      />
-      <label>Data de aquisição</label>
-      <input
-        type="date"
-        name="aquisitondate"
-        value={product.aquisitondate}
-        onChange={handleInputChange}
-      />
-      <label>Foto do produto</label>
-      <input
-        type="file"
-        name="product image"
-        value={product.image}
-        onChange={handleInputChange}
-      />
+
+        <label>Nome do Produto</label>
+        <input
+          type="text"
+          name="title"
+          maxlength="100"
+          value={product.title}
+          onChange={handleInputChange}
+        />
+        <label>Descrição</label>
+        <input
+          class="textarea"
+          type="textarea"
+          name="description"
+          value={product.description}
+          onChange={handleInputChange}
+        />
+        <MeasureWrapper>
+          <div>
+            <label>Altura</label>
+            <input
+                type="number"
+                name="height"
+                placeholder='Valor em CM'
+                value={product.height}
+                onChange={handleInputChange}
+                />
+          </div>
+          <div>
+            <label>Largura</label>
+            <input
+                type="number"
+                name="width"
+                placeholder='Valor em CM'
+                value={product.width}
+                onChange={handleInputChange}
+                />
+          </div>
+          <div>
+            <label>Profundidade</label>
+             <input
+              type="number"
+              name="depth"
+              placeholder='Valor em CM'
+              value={product.depth}
+              onChange={handleInputChange}
+              />
+          </div>
+        </MeasureWrapper>
+        <label>Peso do produto</label>
+        <input
+          type="number"
+          name="weight"
+          placeholder='Valor em Quilos'
+          value={product.weight}
+          onChange={handleInputChange}
+          />
+        <label>Código de Barras</label>
+        <input
+          type="number"
+          name="barcode"
+          placeholder='Digite apenas numeros'
+          value={product.barcode}
+          onChange={handleInputChange}
+        />
+        <label>Categorias</label>
+        <input
+          type="text"
+          name="categories"
+          placeholder='Digite as categorias separando por virgula'
+          value={product.categories}
+          onChange={handleInputChange}
+        />
+        <label>Preço</label>
+        <input
+          type="number"
+          name="price"
+          placeholder='Digite aqui o preço (Apenas numeros)'
+          value={product.price}
+          onChange={handleInputChange}
+        />
+        <label>Data de aquisição</label>
+        <input
+          id="datePickerId"
+          type="date"
+          name="aquisitondate"
+          // max={currentDate}
+          value={product.aquisitondate}
+          onChange={handleInputChange}
+        />
+        <label>Foto do produto</label>
+        <input
+          type="file"
+          name="product image"
+          value={product.image}
+          onChange={handleInputChange}
+        />
       <button>Adicionar novo produto</button>
-    </form>
+    </Form>
   )
 }
 
