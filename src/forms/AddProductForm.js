@@ -58,6 +58,12 @@ const DatePhotoWrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  #datePickerId {
+    ::placeholder{
+      text-align: center;
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -92,7 +98,20 @@ const AddProductForm = (props) => {
     setProduct({ ...product, [name]: value })
   }
 
+  var today = new Date();
+  var month = today.getMonth() +1; //Current Month
+  var year = today.getUTCFullYear(); //Current Year
+  var day = today.getDate(); //Current Day
+  if(month < 9) {
+    month = "0" + month;
+  }
+  if(day < 10) {
+    day = "0" + day;
+  }
+  var maxDate = year + "-" + month + "-" + day;
   
+  const [date, setDate] = useState(maxDate);
+
   return (
     <Form
       onSubmit={(event) => {
@@ -193,7 +212,7 @@ const AddProductForm = (props) => {
               id="datePickerId"
               type="date"
               name="aquisitondate"
-              // max={currentDate}
+              max={date}
               value={product.aquisitondate}
               onChange={handleInputChange}
             />

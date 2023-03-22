@@ -60,8 +60,9 @@ table {
         #product-image {
           width: 40px;
           height: 40px;
-            margin: 0 !important;
-            padding: 0;
+          margin: 0 !important;
+          padding: 0;
+          display: inline-block;
 
           img {
             width: 50px;
@@ -122,7 +123,7 @@ const ProductTable = (props) => (
           props.products.map((product) => (
             <tr key={product.id}>
               <td>{product.title}</td>
-              <td><div id="product-image">{product.image}</div></td>
+              <td><div id="product-image"><img src={product.image} /></div></td>
               <td class="td-buttons">
                 <button className="button muted-button" onClick={() => {props.editRow(product)}}><a href="#produtos-link">Editar</a></button>
                 {/* Using Props to alter DB state and erase the data*/}
@@ -134,7 +135,7 @@ const ProductTable = (props) => (
               <td>{product.barcode}</td>
               <td>{product.categories}</td>
               <td>R${product.price}</td>
-              <td>{product.aquisitondate}</td>
+              <td>{product.aquisitondate.split("-").reverse().join("-")}</td>
             </tr>
           ))
         ) : (

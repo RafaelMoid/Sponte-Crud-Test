@@ -18,8 +18,8 @@ const App = () => {
       barcode: '13284687',
       categories: 'Pc Gammer',
       price: '10000',
-      aquisitondate: '11-01-1990',
-      image: '' 
+      aquisitondate: '1990-01-11',
+      image: 'images/pcgamer1.jpg' 
     },
     {
       id: 2,
@@ -32,8 +32,8 @@ const App = () => {
       barcode: '13284687',
       categories: 'Pc Gammer',
       price: '10000',
-      aquisitondate: '11-01-1990',
-      image: '' 
+      aquisitondate: '1990-01-11',
+      image: 'images/pcgamer2.jpg' 
     },
      {
        id: 3,
@@ -46,8 +46,8 @@ const App = () => {
       barcode: '13284687',
       categories: 'Pc Gammer',
       price: '10000',
-      aquisitondate: '11-01-1990',
-      image: '' 
+      aquisitondate: '1990-01-11',
+      image: 'images/pcgamer3.jpg' 
     },
   ]
 
