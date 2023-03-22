@@ -160,8 +160,9 @@ const App = () => {
   `;
 
   const FlexRow = styled.div`
+    width: 95vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
   `;
 
@@ -169,7 +170,7 @@ const App = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 35%;
+    width: 95vw;
     background-color: white;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -183,17 +184,102 @@ const FlexMid = styled.div`
     box-shadow: 0px;
     width: 80%;
     margin-bottom: 2rem;
+
+    h2 {
+      margin-top: 2rem;
+      font-weight: 900;
+      color: #785afd;
+      font-family: "Montserrat",Sans-serif;
+      font-size: 32px;
+      letter-spacing: -1.8px;
+    }
   `;
 
   const ProductList = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: 95vw;
   `;
+
+const ContactWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  position: fixed;
+  top: 88vh;
+  right: 2rem;
+
+  a {
+    text-decoration: none;
+  :nth-child(1){
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: white;
+    padding: 2px;
+    border-radius: 50px;
+    max-width: 50px;
+
+    :hover {
+      scale: 1.1;
+    }
+  
+    img{
+    max-width: 50px;
+    }
+  }
+  }
+`;
+
+const NewProduct = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-decoration: none;
+  position: absolute;
+  top: 4rem;
+  right: 2.5vw;
+  background-color: #785afd;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 21px;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-box-shadow: 0px 8px 24px -9px #000;
+  box-shadow: 0px 8px 24px -9px #000;
+
+
+  
+  :hover{
+    background-color: #6d52e3;
+  }
+
+  a {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+
+      .seta {
+        margin-left: 18px;
+        width: 14px;
+      }
+    }
+
+`;
 
   return ( 
     <Container>
+      <NewProduct>
+        <a href="#cadastro-produtos">Adicionar novo produto <img class="seta" src="seta.png" /></a>
+        
+      </NewProduct>
+      <ContactWrapper>
+        <a target="_blank" href="https://api.whatsapp.com/send?phone=5581995402751"><img src="wpp.png" /></a>
+      </ContactWrapper>
       <div class="header-container">
         <img class="sponte-logo" src="https://www.sponte.com.br/wp-content/uploads/2020/02/LogoSponteBranca.svg" />
         <div>
@@ -202,9 +288,13 @@ const FlexMid = styled.div`
         </div>
       </div>
       <FlexRow>
+        <ProductList>
+          {/* Passing the deleteProduct and EditRow as Props to Product Table */}
+          <ProductTable products = { products } editRow={editRow} deleteProduct = {deleteProduct} />
+        </ProductList>
         <FlexLarge>
           {editing ? (
-          <FlexMid>
+          <FlexMid id="produtos-link">
             <h2>Editar produto</h2>
             <EditProductForm
               setEditing={setEditing}
@@ -213,17 +303,12 @@ const FlexMid = styled.div`
             />
           </FlexMid>
           ) : (
-          <FlexMid>
+          <FlexMid id="cadastro-produtos">
             <h2>Adicionar produto</h2>
             <AddProductForm addProduct={addProduct} />
           </FlexMid>
             )}
         </FlexLarge>
-          <ProductList>
-            <h2> Listagem de produtos </h2> 
-            {/* Passing the deleteProduct and EditRow as Props to Product Table */}
-            <ProductTable products = { products } editRow={editRow} deleteProduct = {deleteProduct} />
-          </ProductList>
       </FlexRow>
     </Container>
 )
