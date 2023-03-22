@@ -155,6 +155,28 @@ const App = () => {
           text-align: center;
         }
       }
+
+      @media screen and (max-width: 768px) {
+          flex-direction: column;
+
+          .sponte-logo {
+            top: 60px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        div {
+          h1 {
+            margin-top: 120px;
+          }
+
+          h2 {
+            font-size: 26px;
+            margin-top: 12px;
+            margin-bottom: 100px;
+          }
+        }
+      }
     }
 
   `;
@@ -164,6 +186,9 @@ const App = () => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (max-width:768px) {
+    }
   `;
 
   const FlexLarge = styled.div`
@@ -249,8 +274,6 @@ const NewProduct = styled.div`
   z-index: 1;
   -webkit-box-shadow: 0px 8px 24px -9px #000;
   box-shadow: 0px 8px 24px -9px #000;
-
-
   
   :hover{
     background-color: #6d52e3;
@@ -269,6 +292,15 @@ const NewProduct = styled.div`
       }
     }
 
+    
+  @media screen and (max-width: 768px) {
+    top: 260px;
+    left: 0;
+    width: 260px;
+    border-radius: 0 6px 6px 0;
+  }
+
+
 `;
 
   return ( 
@@ -277,9 +309,9 @@ const NewProduct = styled.div`
         <a href="#cadastro-produtos">Adicionar novo produto <img class="seta" src="seta.png" /></a>
         
       </NewProduct>
-      <ContactWrapper>
+      {/* <ContactWrapper>
         <a target="_blank" href="https://api.whatsapp.com/send?phone=5581995402751"><img src="wpp.png" /></a>
-      </ContactWrapper>
+      </ContactWrapper> */}
       <div class="header-container">
         <img class="sponte-logo" src="https://www.sponte.com.br/wp-content/uploads/2020/02/LogoSponteBranca.svg" />
         <div>

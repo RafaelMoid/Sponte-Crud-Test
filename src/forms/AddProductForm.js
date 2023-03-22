@@ -94,7 +94,7 @@ const AddProductForm = (props) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
-
+    console.log("teste", value)
     setProduct({ ...product, [name]: value })
   }
 
@@ -220,9 +220,10 @@ const AddProductForm = (props) => {
           <div>
             <label>Foto do produto</label>
             <input
-              type="file"
-              name="product image"
-              value={product.image}
+              type="text"
+              name="image"
+              placeholder='Insira aqui uma Url valida para imagem do produto'
+              // value={product.image}
               onChange={handleInputChange}
             />
           </div>

@@ -15,6 +15,8 @@ table {
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
   text-align: center;
   padding: 0 2rem;
+
+
   h2 {
     margin-top: 2rem;
     font-weight: 900;
@@ -25,6 +27,7 @@ table {
   }
 
   thead {
+    @media screen and (max-width: 768px) { width: 1400px;}
     tr{
       th{
         width: 10vw;
@@ -32,9 +35,14 @@ table {
         color: #785afd;
         font-family: "Montserrat",Sans-serif;
         font-size: 16px;
-
+       
+        
         :nth-child(4) {
           width: 20vw;
+        }
+
+        @media screen and (max-width: 768px){
+          width: 300px !important;
         }
       }
     }
@@ -42,6 +50,8 @@ table {
 
   tbody {
     margin-bottom: 2rem;
+    
+    @media screen and (max-width: 768px) { width: 1400px;}
     tr {
       td {        
         /* border: 1px solid gray; */
@@ -80,6 +90,7 @@ table {
             border-radius: 6px;
             border: 1px solid white;
             cursor: pointer;
+
             :nth-child(1){
             background-color: #785afd;
             color:white;
@@ -93,8 +104,17 @@ table {
               color:white;
             }
           }
+
+          @media screen and (max-width: 768px){
+          width: 300px !important;
+        }
       }
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    align-items: flex-start;
   }
 }
 `;
@@ -123,7 +143,7 @@ const ProductTable = (props) => (
           props.products.map((product) => (
             <tr key={product.id}>
               <td>{product.title}</td>
-              <td><div id="product-image"><img src={product.image} /></div></td>
+              <td><div id="product-image"><img alt="imagem legal" src={product.image} /></div></td>
               <td class="td-buttons">
                 <button className="button muted-button" onClick={() => {props.editRow(product)}}><a href="#produtos-link">Editar</a></button>
                 {/* Using Props to alter DB state and erase the data*/}

@@ -213,11 +213,12 @@ const EditProductForm = (props) => {
             />
           </div>
           <div>
-            <label>Foto do produto</label>
+          <label>Foto do produto</label>
             <input
-              type="file"
+              type="text"
               name="product image"
-              value={product.image}
+              placeholder='Insira aqui uma Url valida para imagem do produto'
+              // value={product.image}
               onChange={handleInputChange}
             />
           </div>
