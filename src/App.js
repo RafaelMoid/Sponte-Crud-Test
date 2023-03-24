@@ -17,7 +17,7 @@ const App = () => {
       weight: '2',
       barcode: '13284687',
       categories: 'Pc Gammer',
-      price: '10000',
+      price: '10.000,00',
       aquisitondate: '1990-01-11',
       image: 'images/pcgamer1.jpg' 
     },
@@ -31,7 +31,7 @@ const App = () => {
       weight: '2',
       barcode: '13284687',
       categories: 'Pc Gammer',
-      price: '10000',
+      price: '5000,00',
       aquisitondate: '1990-01-11',
       image: 'images/pcgamer2.jpg' 
     },
@@ -41,11 +41,11 @@ const App = () => {
       description: '32GB Ram, Octacore 9i, SDD 500GB, Cooling system, Great product and you should buy it',
       height: '40',
       width: '32',
-      lenght: '20',
+      depth: '20',
       weight: '2',
       barcode: '13284687',
       categories: 'Pc Gammer',
-      price: '10000',
+      price: '7000,00',
       aquisitondate: '1990-01-11',
       image: 'images/pcgamer3.jpg' 
     },
@@ -177,6 +177,27 @@ const App = () => {
           }
         }
       }
+
+      @media screen and (min-width: 768px) and (max-width:1155px) {
+        
+        .sponte-logo {
+            width: 150px;
+            top: 60px;
+            left: 10px;
+            transform: translate(0, 0);
+        }
+        
+        div {
+            margin-top: 30px;
+            margin-bottom: 30px;
+          h1{
+            font-size: 20px;
+          }
+          h2 {
+            font-size: 16px;
+          }
+        }
+      }
     }
 
   `;
@@ -293,13 +314,31 @@ const NewProduct = styled.div`
     }
 
     
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 539px) {
     top: 260px;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     width: 260px;
-    border-radius: 0 6px 6px 0;
   }
 
+  @media screen and (max-width: 768px) {
+    top: 220px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 260px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width:1155px) {
+    width: 160px;
+    font-size: 12px;
+
+    a {
+      .seta {
+        width: 8px;
+        margin-left: 6px;
+      }
+    }
+  }
 
 `;
 

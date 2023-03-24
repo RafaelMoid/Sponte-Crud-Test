@@ -4,6 +4,28 @@ import styled from 'styled-components';
 const Table = styled.div`
 
 
+  table::-webkit-scrollbar {
+    border-radius: 8px;
+    height: 16px;
+  }
+
+  /* Track */
+  table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 8px;
+  }
+  
+  /* Handle */
+  table::-webkit-scrollbar-thumb {
+    background: rgb(90, 193, 252); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    border-radius: 8px;
+  }
+  table::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(118,204,254,1); 
+  }
+
+
 table {
   overflow-x: auto;
   display: flex;
@@ -17,6 +39,7 @@ table {
   padding: 0 2rem;
 
 
+
   h2 {
     margin-top: 2rem;
     font-weight: 900;
@@ -27,7 +50,7 @@ table {
   }
 
   thead {
-    @media screen and (max-width: 768px) { width: 1400px;}
+    @media screen and (max-width: 768px) { width: 1800px;}
     tr{
       th{
         width: 10vw;
@@ -42,8 +65,9 @@ table {
         }
 
         @media screen and (max-width: 768px){
-          width: 300px !important;
+          width: 400px !important;
         }
+
       }
     }
   }
@@ -51,7 +75,7 @@ table {
   tbody {
     margin-bottom: 2rem;
     
-    @media screen and (max-width: 768px) { width: 1400px;}
+    @media screen and (max-width: 768px) { width: 1800px;}
     tr {
       td {        
         /* border: 1px solid gray; */
@@ -129,12 +153,12 @@ const ProductTable = (props) => (
           <th>Produto</th>
           <th>Foto do produto</th>
           <th>Ações</th>
-          <th>Descrição</th>
-          <th>Medidas</th>
+          <th class="side-ajustment">Descrição</th>
+          <th class="side-ajustment">Medidas</th>
           <th>Peso do produto</th>
           <th>Codigo de barras</th>
           <th>Categoria</th>
-          <th>Preço</th>
+          <th class="side-ajustment">Preço</th>
           <th>Data de aquisição</th>
         </tr>
       </thead>

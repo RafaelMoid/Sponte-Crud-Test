@@ -176,7 +176,7 @@ const EditProductForm = (props) => {
           <input
             type="number"
             name="barcode"
-            placeholder='Digite apenas numeros'
+            placeholder='Digite apenas números'
             value={product.barcode}
             onChange={handleInputChange}
           />
@@ -186,7 +186,7 @@ const EditProductForm = (props) => {
           <input
             type="number"
             name="price"
-            placeholder='Digite aqui o preço (Apenas numeros)'
+            placeholder='Insira o valor apenas com números e virgula'
             value={product.price}
             onChange={handleInputChange}
           />
