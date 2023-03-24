@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Olá, é muito bom te ter por aqui
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto foi concebido levando em consideração o desenvolvimento do minimo e o manejo da adição de novas Features com o passar dos dias.
 
-## Available Scripts
+## Rodando o projeto
 
-In the project directory, you can run:
+No diretorio do projeto, use o seguinte comando no terminal:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Acesse [http://localhost:3000](http://localhost:3000) para ver o site em seu navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+###Sobre o projeto
+Iniciei coletando as fontes, cores e todo o design system do site original da **Sponte** e pesquisei a forma mais simples de entregar o que foi solicitado no desafio, então como tenho experiencia com desenvolvimento WEB convencional componentizei os elementos que costumo usar para Tabelas e Cadastros de Produtos, porém estre projeto nunca tinha feito um CRUD no FrontEnd, o que me levou a criar um componente para a *Edição* dos produtos.
 
-### `npm test`
+Com isso feito criei um "banco de dado" mockado para testar os estilos dos componentes inicicias e para isso fiz uso do CSS in JS com a library Styled Components e optei por estilizar cada componente individualmente para fins de organização, acredito que ele pode ser escrito de forma mais organizada, fico aberto nesse ponto (e em todos os outros) a receber sugestão de como melhorar meu código.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Bom, *Componentes estilizados*, *CRUD funcionando corretamente*, foi a hora de começar a cumprir a formatação do **CRUD**, máximo de caracteres, variaveis para coletar data do dia e passar como limite para o Datepicker e todo esse refinamento na inserção do Register e do Update do CRUD.
 
-### `npm run build`
+Hoje é o dia que me preparo para entregar o projeto porém deixo em aberto que por evitar o uso do Formik e do Yup no primeiro momento perdi tempo, porém isso foi importante para que eu possa mostrar que consigo trabalhar com Branchs, Git Flow e com toda a certeza não vou quebrar a Branch Master fazendo commits errados hahaha
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Estou atualmente desenvolvendo na Branch Develop a integração do Formik e o uso do Yup como validado, é possivel verificar nessa Branch o meu andamento até então.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+###Espero que esse material seja suficiente para poder mostrar a vocês o quanto estou interessado em fazer parte do time e que devo ter o necessario para ingressar no time, caso você precise tirar qualquer duvida comigo, ou deseje conversar sobre esse código, eu ficaria muito feliz de poder aprender mais e me aprimorar independente do resultado.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sei que não é o proposito desse projeto porém ao inspecionar a página home de vocês percebi que ela foi feita no Elementor e gostaria de deixar uma ressalva, eu sei trabalhar com elementor nativo no WordPress e sei desenvolver temas para WordPress usando o Frontend convencional e PHP para que o WordPress se torne um CMS facilitando a edição da Página da Sponte pelo *time de Marketing* ou até *redatores*.
