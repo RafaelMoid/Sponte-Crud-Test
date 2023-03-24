@@ -21,6 +21,6 @@ Hoje é o dia que me preparo para entregar o projeto porém deixo em aberto que 
 
 Estou atualmente desenvolvendo na Branch Develop a integração do Formik e o uso do Yup como validado, é possivel verificar nessa Branch o meu andamento até então.
 
-##**Espero que esse material seja suficiente para poder mostrar a vocês o quanto estou interessado em fazer parte do time e que devo ter o necessario para ingressar no time, caso você precise tirar qualquer duvida comigo, ou deseje conversar sobre esse código, eu ficaria muito feliz de poder aprender mais e me aprimorar independente do resultado.**
+## **Espero que esse material seja suficiente para poder mostrar a vocês o quanto estou interessado em fazer parte do time e que devo ter o necessario para ingressar no time, caso você precise tirar qualquer duvida comigo, ou deseje conversar sobre esse código, eu ficaria muito feliz de poder aprender mais e me aprimorar independente do resultado.**
 
 *Sei que não é o proposito desse projeto porém ao inspecionar a página home de vocês percebi que ela foi feita no Elementor e gostaria de deixar uma ressalva, eu sei trabalhar com elementor nativo no WordPress e sei desenvolver temas para WordPress usando o Frontend convencional e PHP para que o WordPress se torne um CMS facilitando a edição da Página da Sponte pelo *time de Marketing* ou até *redatores*.*
